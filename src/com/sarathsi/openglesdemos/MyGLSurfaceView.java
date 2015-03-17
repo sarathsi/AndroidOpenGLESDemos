@@ -19,8 +19,9 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
 import android.content.Context;
+import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
-import android.view.MotionEvent;
+import android.util.Log;
 
 /**
  * A view container where OpenGL ES graphics can be drawn on screen.
@@ -37,33 +38,42 @@ public class MyGLSurfaceView extends GLSurfaceView {
         // Create an OpenGL ES 2.0 context.
         setEGLContextClientVersion(2);
 
-        // Set the Renderer for drawing on the GLSurfaceView
+        // Set the Renderer
         mRenderer = new MyGLRenderer();
         setRenderer(mRenderer);
 
         // Render the view only when there is a change in the drawing data
         setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
+        // Others: RENDERMODE_CONTINUOUSLY
+        
+        
     }
 
     
     public class MyGLRenderer implements GLSurfaceView.Renderer {
+    	private static final String TAG = "MyGLRenderer";
 
 		@Override
 		public void onSurfaceCreated(GL10 gl, EGLConfig config) {
-			// TODO Auto-generated method stub
-			
+			Log.i(TAG, "onSurfaceCreated()");
+	        // specify clear values for the color buffers (background frame color)
+	        GLES20.glClearColor(0.0f, 1.0f, 1.0f, 1.0f);
 		}
 
 		@Override
 		public void onSurfaceChanged(GL10 gl, int width, int height) {
-			// TODO Auto-generated method stub
+			Log.i(TAG, "onSurfaceChanged() " + width + "x" + height);
+			GLES20.glViewport(100, 100, width, height);
 			
 		}
 
 		@Override
 		public void onDrawFrame(GL10 gl) {
-			// TODO Auto-generated method stub
-			
+			Log.i(TAG, "onDrawFrame()");
+	        // Redraw background color (clear buffers to preset values)
+	        GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT);
+	        //(GL_COLOR_BUFFER_BIT, GL_DEPTH_BUFFER_BIT, GL_ACCUM_BUFFER_BIT, and GL_STENCIL_BUFFER_BIT)
+
 		}
     	
     }

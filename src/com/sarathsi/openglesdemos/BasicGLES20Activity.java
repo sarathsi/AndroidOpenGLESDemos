@@ -7,17 +7,13 @@ import android.os.Bundle;
 public class BasicGLES20Activity extends Activity {
 
     private GLSurfaceView mGLSurfaceView;
-    private MySurfaceView mSurfaceView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //mGLSurfaceView = new MyGLSurfaceView(this);
-        
-        mSurfaceView = new MySurfaceView(this);
-        
-        setContentView(mSurfaceView);
+        mGLSurfaceView = new MyGLSurfaceView(this);
+        setContentView(mGLSurfaceView);
     }
 
     @Override
