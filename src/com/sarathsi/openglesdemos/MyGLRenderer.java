@@ -15,7 +15,7 @@ public class MyGLRenderer  implements GLSurfaceView.Renderer {
 	public void onSurfaceCreated(GL10 gl, EGLConfig config) {
 		Log.i(TAG, "onSurfaceCreated()");
         // specify clear values for the color buffers (background frame color)
-        GLES20.glClearColor(0.0f, 1.0f, 1.0f, 1.0f);
+        GLES20.glClearColor(1.0f, 1.0f, 1.0f, 1.0f); // RGBA
 	}
 
 	@Override

@@ -1,13 +1,7 @@
 package com.sarathsi.openglesdemos;
 
-import com.sarathsi.openglesdemos.uituils.ViewWithCanvasPaint;
-
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 
 public class SurfaceViewDemoActivity extends Activity {
 
@@ -19,9 +13,6 @@ public class SurfaceViewDemoActivity extends Activity {
 
 		mSurfaceView = new MySurfaceView(this);
 		setContentView(mSurfaceView);
-
-		//View myView = new ViewWithCanvasPaint(this);
-		//setContentView(myView);
 
 	}
 

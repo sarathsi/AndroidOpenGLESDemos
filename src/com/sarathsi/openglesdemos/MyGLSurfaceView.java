@@ -40,10 +40,8 @@ public class MyGLSurfaceView extends GLSurfaceView {
         setRenderer(mRenderer);
 
         // Render the view only when there is a change in the drawing data
-        setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
-        // Others: RENDERMODE_CONTINUOUSLY
-        
-        
+        // or when requestRender() is called.
+        setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY); // RENDERMODE_CONTINUOUSLY
     }
 
 }
